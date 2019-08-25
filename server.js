@@ -24,22 +24,14 @@ var requestHandler = function (request, response) {
     HINT: Explore the list of MIME Types
     https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types
    */
-  //checking for requested url if method is GET and url is /listings
-
   if (request.method === "GET" && parsedUrl.pathname === "/listings") {
     response.statusCode = 200;
     response.write(listingData);
   }
   else {
-
-    //for any bad request send status code as 404
-
     response.statusCode = 404;
-
     response.write("Bad gateway error");
   }
-  //end() ensures that the all the headers and the message body is sent.
-
   response.end();
 };
 
@@ -53,7 +45,7 @@ fs.readFile('listings.json', 'utf8', function (err, data) {
    */
   //Check for errors
   listingData = data;
-  //Start the server
+  //Callbacks the function to start the server
   startServer();
 
 
