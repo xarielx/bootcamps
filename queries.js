@@ -47,7 +47,7 @@ var updatePhelpsLab = function () {
    */
   Listing.findOneAndUpdate({ "name": "Phelps Laboratory" }, { $set: { address: "1953 Museum Road Gainesville, FL 32611" } }, { returnOriginal: false }, (err, data) => {
     if (err) {
-      console.log("Something wrong when updating data!");
+      console.log("Unable to update data.");
     }
     console.log(data);
   });
