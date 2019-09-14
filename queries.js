@@ -56,7 +56,7 @@ var retrieveAllListings = function () {
   /*
     Retrieve all listings in the database, and log them to the console.
    */
-  util.inspect.defaultOptions.maxArrayLength = null; //this enables the  console to display the
+  util.inspect.defaultOptions.maxArrayLength = null; //this enables the  console to display the entire listing
   Listing.find(function (err, data) {
     if (err) return handleError(err);
     console.log(data);
