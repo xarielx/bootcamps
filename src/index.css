@@ -1,0 +1,166 @@
+body {
+	margin: 1em;
+	padding: 1em;
+	font-family: sans-serif;
+}
+
+/* ##### general ##### */
+* {
+	box-sizing: border-box;
+}
+main {
+	padding: 0 2rem;
+}
+
+/* ##### Search ##### */
+
+input[type='text'] {
+	margin: 1rem;
+	background: #ddd;
+	font-size: 1.3rem;
+	border: none;
+	box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+	border-radius: 3px;
+	padding: 0 2rem;
+	width: calc(100% - 2rem);
+	height: 4rem;
+}
+
+/* ##### NamesList ##### */
+body::-webkit-scrollbar {
+    width: 1em;
+}
+
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+tr {
+	padding: 0;
+}
+th {
+	position: left;
+	list-style: none;
+	padding: 0.25rem 0.75rem;
+	margin: 2px;
+	border-radius: 3px;
+}
+td:hover {
+	position: left;
+	cursor: pointer;
+	background-color: #ddd;
+	border-color: #3b3b3b;
+}
+
+/* ##### Columns ##### */
+.leftCol {
+	float: left;
+	width: 50%;
+	padding: 10px;
+	border-radius: 10px;
+	
+}
+.rightCol {
+	float: left;
+	width: 50%;
+	padding: 10px;
+	background-color: palegoldenrod;
+	border-radius: 10px;
+	text-align: center;
+}
+.BLDGadd{
+	float: left;
+	width: 100%;
+	padding: 1px;
+	background-color: palegoldenrod;
+}
+
+img{
+
+  padding: 5px;
+  width: 208.5px;
+  height: 132px;
+  text-align: center;
+ 
+}
+/* ##### Rows ##### */
+.row {
+	margin: 1rem;
+	
+}
+
+.row:after {
+	padding: 1 0rem;
+	content: '';
+	display: table;
+	clear: both;
+}
+
+.tableWrapper {
+	max-height: 800px;
+	overflow: auto;
+	scroll-behavior: auto;
+}
+
+/* ##### Footer ##### */
+.credit {
+	padding: 1rem 0;
+	color: #b3b3b3;
+}
+.credit a {
+	color: #3498bb;
+}
+button {
+	background: #d7d7d7;
+	color: #3b3b3b;
+	padding: 0.6rem 1rem;
+	font-size: 0.8rem;
+	border: solid 1px #c7c7c7;
+	margin: 1rem 0;
+	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+	border-radius: 3px;
+	outline: none;
+}
+button:hover {
+	background: green;
+	border: cadetblue;
+	border-color: black;
+	color: white;
+}
+.removeButton
+{
+	border: 3px;
+	padding: 1em;
+	background: blue;
+	border-color: #3498bb;
+	color: white;
+}
+.directoryName{
+	background: #3498db;
+	border: 3px;
+	padding: 1em;
+	background: orange;
+	border-color: #3498bb;
+}
+.directoryID{
+	background: #b3b3b3;
+	border: 3px;
+	padding: 1em;
+	background: grey;
+}
+.tableWrapper::-webkit-scrollbar {
+    width: 1em;
+}
+ 
+.tableWrapper::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+ 
+.tableWrapper::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}

@@ -1,80 +1,68 @@
-# Introduction to HTTP and Asynchronous Programming using Node.js
-In this assignment we will start to build our UF Directory application. We will use [Node.js](https://en.wikipedia.org/wiki/Node.js) and some of its built in modules to implement a server that provides directory data to clients. 
-### What is HTTP? (Make sure to read [this](http://code.tutsplus.com/tutorials/http-the-protocol-every-web-developer-must-know-part-1--net-31177))
-HTTP (Hypertext Transfer Protocol) is a **stateless** protocol that allows computers to communicate with each other. We use HTTP to allow our client application (the one users see) to communicate with a server that stores and manipulates data relevant to the user.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-HTTP basically boils down to a *request* and a *response*. A client makes a request to either retreive, add, delete, or modify data in some fashion. The host recieves this request, and will provide an appropriate response back to the client. In our case, the server will handle requests for directory listings by responding with listing data in the [JSON](http://stackoverflow.com/questions/383692/what-is-json-and-why-would-i-use-it) format.
+## Available Scripts
 
-### What is Node.js?
-Node.js is a Javascript runtime environment built on Google's V8 engine. In other terms, it is a program that interprets Javascript. If I made a file named `hello.js` with the line
-```javascript
-console.log('Hello, world!');
-```
-and then typed the command `node hello.js` in my terminal, I should expect to see the text 
-`Hello, world!` printed on the screen. 
+In the project directory, you can run:
 
-Node is well known for its ability to run code **asynchronously**.  This means that input and output are non-blocking, and the process of one function does not stop the execution of another. The way this asynchronous code is implemented is through **callback** functions, which are called after a certain process has been completed. The best way to illustrate this is through example. 
+### `npm start`
 
-This is a simple server that responds to all requests with the text `Request received!`.
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-```javascript
-var http = require('http'); 
-var port = 8080; 
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
 
-var requestHandler = function(request, response) {
-  response.end('Request received!');
-};
+### `npm test`
 
-// a server is created, but not started
-var server = http.createServer(requestHandler);
+Launches the test runner in the interactive watch mode.<br />
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-// the server is now started, listening for requests on port 8080
-server.listen(port, function() {
-  //once the server is listening, this callback function is executed
-  console.log('Server listening on: http://127.0.0.1:' + port);
-});
-console.log('Is the server started?');
-```
-Which log statement do you expect to be printed first? Answer this, then type the command `node simpleServer.js` and see if the results match up with what you were thinking. 
+### `npm run build`
 
-`Is the server started?` gets printed first is because the call to `server.listen()` is asynchronous in nature. While server.listen() is not finished, the control flow gets passed to the next line of the program. Once server.listen() is finished, it executes the *callback*, defined by the anonymous function: 
-```javascript
-function() {
-    console.log('Server listening on: http://127.0.0.1:' + port);
-}
-```
-Before continuing to the assignment, [these](http://www.theprojectspot.com/tutorial-post/Node-js-for-beginners-part-1-hello-world/2) [two](http://www.theprojectspot.com/tutorial-post/nodejs-for-beginners-callbacks/4) tutorials will help you further understand how Node is used to create servers and the nature of callback functions. 
+Builds the app for production to the `build` folder.<br />
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-As you may imagine, the utility of the above server is quite low, since it has no ability to differentiate between requests and respond in the appropriate fashion.
+The build is minified and the filenames include the hashes.<br />
+Your app is ready to be deployed!
 
-## Assignment
-Your objective is to create a server that provides listing data from a JSON file. To accomplish this, you will: 
-- use the File System module (fs) to load `listings.json` into memory  
-- create a request handler with the URL module to send the listing data on a GET request to `localhost:8080/listings`
-- use the HTTP module to create a server that makes use of this request handler
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-We have provided skeleton code that will help guide you in completing this assignment. 
+### `npm run eject`
 
-There is also a file named `server.tests.js` containing unit tests to test your server once completed. 
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-# Instructions: 
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-1. Make sure you have [Node.js](https://nodejs.org/en/) installed
-2. Clone this repository and then navigate to it on your local machine's terminal 
-  See Link for details on how to clone repository - (https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository)
-3. Install the mocha testing framework with the command `npm install -g mocha`
-4. Use `npm install` to download all necessary dependencies
-5. Implement the server by filling in code blocks found in `server.js`, then test your implementation with the command `mocha server.test.js`. (make sure your server is running before trying to run the tests!)
+Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-Some resources you may find useful: 
-- [Creating an HTTP server in Node.js](http://www.sitepoint.com/creating-a-http-server-in-node-js/)
-- URL [Parsing](https://nodejs.org/api/url.html#url_url_parsing)
-- The [HTTP module](https://nodejs.org/api/http.html)
-    - [response.writeHead()](https://nodejs.org/api/http.html#http_response_writehead_statuscode_statusmessage_headers)
-    - [response.end()](https://nodejs.org/api/http.html#http_response_end_data_encoding_callback)
-- The File System's [readFile() method](https://nodejs.org/api/fs.html#fs_fs_readfile_path_options_callback)
-- [Different MIME Types/File types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types)
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
+## Learn More
 
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
+To learn React, check out the [React documentation](https://reactjs.org/).
 
+### Code Splitting
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+
+### Analyzing the Bundle Size
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+
+### Making a Progressive Web App
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+
+### Advanced Configuration
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+
+### Deployment
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+
+### `npm run build` fails to minify
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
